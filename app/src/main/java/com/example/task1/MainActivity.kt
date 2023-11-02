@@ -35,9 +35,9 @@ class MainActivity : AppCompatActivity() {
         retrofidata.enqueue(object : Callback<ApiData?> {
             override fun onResponse(call: Call<ApiData?>, response: Response<ApiData?>) {
                 val responsebody = response.body()
-                val username = responsebody?.data
+                val userlist = responsebody?.data!!
 
-                myadapter = MyAdapter(this@MainActivity, userList)
+                myadapter = MyAdapter(this@MainActivity, userlist)
                 myrecyclerView.adapter = myadapter
                 myrecyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
             }
